@@ -1,9 +1,19 @@
-def 选取(值,字典列表,标签="身份",列表返回=False):
+def 选取(选择字典,字典列表,列表返回=False):
     if 列表返回:
-        return [字典 for 字典 in 字典列表 if 标签 in 字典 and 字典[标签]==值]
+        返回值= []
+        for 字典 in 字典列表:
+            for 标签,值 in 选择字典.items():
+                if 标签 not in 字典 or 字典[标签]!=值:
+                    break
+            else:
+                返回值.append(字典)
+        return 返回值
     for 字典 in 字典列表:
-        if 标签 in 字典 and 字典[标签]==值:
-            return 字典
+            for 标签,值 in 选择字典.items():
+                if 标签 not in 字典 or 字典[标签]!=值:
+                    break
+            else:
+                return 字典
     return None
 
 def 表出栈(项,列表):
